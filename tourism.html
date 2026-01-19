@@ -2,104 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tourism Website</title>
+    <title>Tourism</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <style>
         body {
             margin: 0;
-            font-family: "Roboto", sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         section {
             min-height: 100vh;
             width: 100%;
+            display: none;
         }
 
-        /* HOME SECTION */
+        /* HOME */
         #sectionHome {
+            display: flex;
+            align-items: flex-end;
             background-image: url("https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/ocean.jpg");
             background-size: cover;
             background-position: center;
-            display: flex;
-            align-items: flex-end;
             padding: 30px;
         }
 
         .home-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
             max-width: 400px;
-        }
-
-        .home-card h1 {
-            font-size: 36px;
-            font-weight: bold;
         }
 
         .primary-btn {
             background-color: #25b1cc;
             color: white;
             border: none;
-            padding: 10px 24px;
-            border-radius: 8px;
+            padding: 10px 22px;
+            border-radius: 6px;
         }
 
         /* FAVOURITE PLACES */
         #sectionFavouritePlaces {
             background-color: #f4f6f8;
             padding: 30px;
-            display: none;
-        }
-
-        .places-wrapper {
-            max-width: 900px;
-            margin: auto;
         }
 
         .place-card {
-            background-color: white;
-            border-radius: 12px;
+            background: white;
             padding: 20px;
-            margin-bottom: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .place-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 10px;
+            width: 110px;
+            height: 110px;
+            border-radius: 8px;
         }
 
         /* DETAIL VIEW */
         #sectionTajMahalDetailedView {
             background-color: #f4f6f8;
             padding: 30px;
-            display: none;
         }
 
-        .detail-wrapper {
-            max-width: 900px;
-            margin: auto;
-            background-color: white;
+        .detail-box {
+            background: white;
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .back-btn {
-            margin-top: 20px;
-        }
-
-        h4 {
-            margin-top: 25px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -110,8 +88,8 @@
 <section id="sectionHome">
     <div class="home-card">
         <h1>Tourism</h1>
-        <p>Plan your trip and explore India’s most beautiful destinations.</p>
-        <button class="primary-btn" onclick="display('sectionFavouritePlaces')">
+        <p>Plan your trip and explore beautiful places.</p>
+        <button class="primary-btn" onclick="showSection('sectionFavouritePlaces')">
             Get Started
         </button>
     </div>
@@ -119,129 +97,71 @@
 
 <!-- FAVOURITE PLACES -->
 <section id="sectionFavouritePlaces">
-    <div class="places-wrapper">
-        <h1 class="mb-4">Favourite Places</h1>
+    <h1>Favourite Places</h1>
 
-        <div class="place-card" onclick="display('sectionTajMahalDetailedView')">
-            <div>
-                <h4>Taj Mahal</h4>
-                <p>Symbol of love and architectural brilliance.</p>
-            </div>
-            <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-img.png" alt="Taj Mahal">
+    <div class="place-card" onclick="showSection('sectionTajMahalDetailedView')">
+        <div>
+            <h4>Taj Mahal</h4>
+            <p>Symbol of love.</p>
         </div>
-
-        <div class="place-card">
-            <div>
-                <h4>Golden Temple</h4>
-                <p>Spiritual heart of Sikhism.</p>
-            </div>
-            <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/golden-temple-img.png" alt="Golden Temple">
-        </div>
-
-        <div class="place-card">
-            <div>
-                <h4>Mysore Palace</h4>
-                <p>Royal heritage of Karnataka.</p>
-            </div>
-            <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/mysore-palace-img.png" alt="Mysore Palace">
-        </div>
-
-        <div class="place-card">
-            <div>
-                <h4>Varanasi Temple</h4>
-                <p>Ancient spiritual city of India.</p>
-            </div>
-            <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/varanasi-temple-img.png" alt="Varanasi Temple">
-        </div>
-
-        <button class="btn btn-dark back-btn" onclick="display('sectionHome')">Back</button>
+        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-img.png">
     </div>
+
+    <div class="place-card">
+        <div>
+            <h4>Golden Temple</h4>
+            <p>Spiritual heart of Sikhism.</p>
+        </div>
+        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/golden-temple-img.png">
+    </div>
+
+    <button class="btn btn-dark" onclick="showSection('sectionHome')">Back</button>
 </section>
 
-<!-- DETAILED VIEW -->
+<!-- DETAIL VIEW -->
 <section id="sectionTajMahalDetailedView">
-    <div class="detail-wrapper">
-        <h1 class="mb-4">Detailed View</h1>
+    <div class="detail-box">
+        <h1>Taj Mahal</h1>
 
-        <!-- Carousel 1 -->
-        <h4>Main Views</h4>
-        <div id="carouselMain" class="carousel slide mb-4" data-ride="carousel">
+        <div id="tajCarousel" class="carousel slide mb-4" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-c1-img.png" class="d-block w-100">
+                    <img class="d-block w-100"
+                         src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-c1-img.png">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-c2-img.png" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-c3-img.png" class="d-block w-100">
+                    <img class="d-block w-100"
+                         src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-c2-img.png">
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselMain" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#carouselMain" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
         </div>
 
-        <!-- Carousel 2 -->
-        <h4>Architecture & Details</h4>
-        <div id="carouselArchitecture" class="carousel slide mb-4" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523" class="d-block w-100">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselArchitecture" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#carouselArchitecture" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
-
-        <!-- Carousel 3 -->
-        <h4>Night & Reflection Views</h4>
-        <div id="carouselNight" class="carousel slide mb-4" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1599661046827-dacff0b2b76b" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1602607421207-1a7e6b3d1f7a" class="d-block w-100">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselNight" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#carouselNight" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
-
-        <h2>Taj Mahal</h2>
         <p>
-            The Taj Mahal is a UNESCO World Heritage Site and one of the Seven Wonders
-            of the World. Built by Emperor Shah Jahan, it represents eternal love and
-            architectural perfection.
+            The Taj Mahal is one of the Seven Wonders of the World, built by Emperor
+            Shah Jahan as a symbol of eternal love.
         </p>
 
-        <button class="btn btn-dark back-btn" onclick="display('sectionFavouritePlaces')">Back</button>
+        <button class="btn btn-dark" onclick="showSection('sectionFavouritePlaces')">
+            Back
+        </button>
     </div>
 </section>
 
-<!-- Scripts -->
+<!-- JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll("section");
+        sections.forEach(sec => sec.style.display = "none");
+        document.getElementById(sectionId).style.display = "flex";
+    }
+
+    // Show home on load
+    showSection("sectionHome");
+</script>
 
 </body>
 </html>
