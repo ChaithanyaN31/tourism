@@ -24,7 +24,7 @@
         #sectionHome {
             display: flex;
             align-items: flex-end;
-            background-image: url("https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/ocean.jpg");
+            background-image: url("images/home.jpg");
             background-size: cover;
             background-position: center;
             padding: 30px;
@@ -63,9 +63,10 @@
         }
 
         .place-card img {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             border-radius: 8px;
+            object-fit: cover;
         }
 
         /* DETAIL VIEW */
@@ -88,7 +89,7 @@
 <section id="sectionHome">
     <div class="home-card">
         <h1>Tourism</h1>
-        <p>Plan your trip and explore beautiful places.</p>
+        <p>Plan your trip and explore India’s most beautiful places.</p>
         <button class="primary-btn" onclick="showSection('sectionFavouritePlaces')">
             Get Started
         </button>
@@ -102,9 +103,9 @@
     <div class="place-card" onclick="showSection('sectionTajMahalDetailedView')">
         <div>
             <h4>Taj Mahal</h4>
-            <p>Symbol of love.</p>
+            <p>Symbol of love and heritage.</p>
         </div>
-        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-img.png">
+        <img src="images/taj1.jpg" alt="Taj Mahal">
     </div>
 
     <div class="place-card">
@@ -112,7 +113,23 @@
             <h4>Golden Temple</h4>
             <p>Spiritual heart of Sikhism.</p>
         </div>
-        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/golden-temple-img.png">
+        <img src="images/golden.jpg" alt="Golden Temple">
+    </div>
+
+    <div class="place-card">
+        <div>
+            <h4>Mysore Palace</h4>
+            <p>Royal palace of Karnataka.</p>
+        </div>
+        <img src="images/mysore.jpg" alt="Mysore Palace">
+    </div>
+
+    <div class="place-card">
+        <div>
+            <h4>Varanasi</h4>
+            <p>Ancient spiritual city.</p>
+        </div>
+        <img src="images/varanasi.jpg" alt="Varanasi">
     </div>
 
     <button class="btn btn-dark" onclick="showSection('sectionHome')">Back</button>
@@ -126,19 +143,27 @@
         <div id="tajCarousel" class="carousel slide mb-4" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100"
-                         src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-c1-img.png">
+                    <img src="images/taj1.jpg" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100"
-                         src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/tajmahal-c2-img.png">
+                    <img src="images/taj2.jpg" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/taj3.jpg" class="d-block w-100">
                 </div>
             </div>
+
+            <a class="carousel-control-prev" href="#tajCarousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#tajCarousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
         </div>
 
         <p>
-            The Taj Mahal is one of the Seven Wonders of the World, built by Emperor
-            Shah Jahan as a symbol of eternal love.
+            The Taj Mahal is one of the Seven Wonders of the World, built by
+            Mughal Emperor Shah Jahan in memory of his wife Mumtaz Mahal.
         </p>
 
         <button class="btn btn-dark" onclick="showSection('sectionFavouritePlaces')">
@@ -159,7 +184,6 @@
         document.getElementById(sectionId).style.display = "flex";
     }
 
-    // Show home on load
     showSection("sectionHome");
 </script>
 
